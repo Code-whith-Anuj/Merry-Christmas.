@@ -1,0 +1,693 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS Variables */
+:root {
+    --paper-color: #f5f1e8;
+    --paper-dark: #e8e0d0;
+    --paper-darker: #d9c7b2;
+    --tape-yellow: rgba(255, 215, 0, 0.7); /* Gold */
+    --tape-blue: rgba(176, 224, 230, 0.7);
+    --ink-brown: #5d4037;
+    --ink-dark: #3e2723;
+    --muted-red: #c41e3a; /* Christmas Red */
+    --muted-green: #2f5233; /* Christmas Green */
+    --muted-blue: #165b33; /* Dark Green */
+    --muted-yellow: #ffd700; /* Gold */
+}
+
+/* Body Styles */
+body {
+    font-family: 'Indie Flower', cursive;
+    background-color: var(--paper-darker);
+    background-image: url('https://www.transparenttextures.com/patterns/paper.png');
+    color: var(--ink-brown);
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Paper container with texture */
+.paper-container {
+    background-color: var(--paper-color);
+    background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+    border-radius: 2px;
+    box-shadow: 
+        0 0 20px rgba(0, 0, 0, 0.1),
+        inset 0 0 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+    padding: 40px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transform: rotate(0.5deg);
+    overflow: hidden;
+}
+
+.paper-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Fold marks */
+.fold-mark {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.fold-1 { top: 33%; }
+.fold-2 { top: 66%; }
+
+/* Sticky tape effect */
+.tape {
+    position: absolute;
+    width: 70px;
+    height: 25px;
+    background: rgba(196, 30, 58, 0.6); /* Red Tape */
+    opacity: 0.7;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transform: rotate(-5deg);
+    z-index: 2;
+}
+
+.tape.blue { background: rgba(47, 82, 51, 0.6); /* Green Tape */ }
+.tape-1 { top: -10px; left: 20%; }
+.tape-2 { top: -10px; right: 30%; }
+.tape-3 { bottom: -10px; left: 15%; }
+.tape-4 { bottom: -10px; right: 25%; }
+
+/* Header styles */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 3;
+}
+
+.etasha-title {
+    font-family: 'Caveat', cursive;
+    font-size: 3.5rem;
+    color: var(--muted-red);
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+    letter-spacing: 1px;
+}
+
+.album-title {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 2.2rem;
+    color: var(--muted-green);
+    margin-bottom: 30px;
+}
+
+.emotion-line {
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--ink-dark);
+    max-width: 700px;
+    margin: 0 auto 30px;
+    padding: 15px;
+    border-top: 2px dashed var(--muted-green);
+    border-bottom: 2px dashed var(--muted-red);
+    font-family: 'Caveat', cursive;
+}
+
+/* Navigation */
+.album-nav {
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 3;
+}
+
+.album-nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--ink-dark);
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    padding: 8px 20px;
+    border-radius: 20px;
+    background-color: rgba(245, 241, 232, 0.7);
+    border: 1px solid rgba(93, 64, 55, 0.2);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.nav-link:hover {
+    background-color: rgba(196, 30, 58, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Section styles */
+.album-section {
+    margin: 50px 0;
+    position: relative;
+    z-index: 3;
+    padding: 20px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.section-title {
+    font-family: 'Caveat', cursive;
+    font-size: 2.5rem;
+    color: var(--ink-dark);
+    margin-bottom: 25px;
+    display: inline-block;
+    padding: 5px 20px;
+    background-color: rgba(245, 241, 232, 0.9);
+    border-radius: 0 15px 15px 0;
+    border-left: 5px solid var(--muted-red);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.section-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* Photo/video item styles */
+.memory-item {
+    flex: 1 1 300px;
+    min-height: 280px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 2px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.memory-item:hover {
+    transform: translateY(-8px) rotate(0.5deg);
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.memory-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/light-paper-fibers.png');
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.memory-item::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(232, 224, 208, 0.5);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: var(--paper-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.photo-placeholder i {
+    font-size: 4rem;
+    color: var(--ink-brown);
+    opacity: 0.6;
+}
+
+.video-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--muted-red);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-family: sans-serif;
+}
+
+.memory-caption {
+    font-size: 1.1rem;
+    color: var(--ink-dark);
+    padding: 10px 5px;
+    border-top: 1px dashed rgba(93, 64, 55, 0.2);
+    text-align: center;
+}
+
+/* Emotional quote styles */
+.emotional-quote {
+    flex: 1 1 100%;
+    background-color: rgba(215, 165, 158, 0.1);
+    padding: 30px;
+    margin: 20px 0;
+    border-left: 4px solid var(--muted-green);
+    border-radius: 0 10px 10px 0;
+    font-size: 1.5rem;
+    font-style: italic;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Caveat', cursive;
+}
+
+.emotional-quote::before {
+    content: "“";
+    font-family: 'Caveat', cursive;
+    font-size: 8rem;
+    position: absolute;
+    top: -30px;
+    left: 10px;
+    color: rgba(93, 64, 55, 0.1);
+}
+
+.journey-quote {
+    background-color: rgba(196, 30, 58, 0.1);
+    border-left-color: var(--muted-red);
+}
+
+.crazy-quote {
+    background-color: rgba(255, 215, 0, 0.15);
+    border-left-color: var(--muted-yellow);
+}
+
+.party-quote {
+    background-color: rgba(47, 82, 51, 0.1);
+    border-left-color: var(--muted-green);
+}
+
+.silent-quote {
+    background-color: rgba(196, 30, 58, 0.1);
+    border-left-color: var(--muted-red);
+}
+
+/* Handwritten note style */
+.handwritten-note {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    color: var(--ink-dark);
+    transform: rotate(-1deg);
+    padding: 25px;
+    background-color: rgba(255, 253, 208, 0.3);
+    border-radius: 0 20px 20px 0;
+    margin: 30px 0;
+    border-left: 5px solid var(--muted-red);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.05);
+    flex: 1 1 100%;
+}
+
+/* Class Quote */
+.class-quote {
+    text-align: center;
+    margin: 60px 0;
+    padding: 40px;
+    background-color: rgba(245, 241, 232, 0.8);
+    border-radius: 10px;
+    border: 2px dashed var(--muted-green);
+    position: relative;
+    z-index: 3;
+}
+
+.class-quote p {
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+    color: var(--ink-dark);
+    font-style: italic;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 3;
+}
+
+.footer-content {
+    padding: 20px;
+}
+
+.footer-line {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    color: var(--ink-dark);
+    margin-bottom: 10px;
+}
+
+.etasha-logo {
+    font-weight: bold;
+    color: var(--ink-dark);
+    font-size: 2rem;
+    font-family: 'Shadows Into Light', cursive;
+    margin: 15px 0;
+}
+
+.footer-mission {
+    font-size: 1.2rem;
+    color: var(--ink-brown);
+    margin-bottom: 20px;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.footer-icons i {
+    font-size: 1.8rem;
+    color: var(--muted-red);
+    opacity: 0.7;
+    transition: transform 0.3s;
+}
+
+.footer-icons i:hover {
+    transform: scale(1.2);
+}
+
+/* Lightbox modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+    background-color: var(--paper-color);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content img, .modal-content video {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 3px;
+    display: block;
+    margin: 0 auto;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 1001;
+}
+
+.close-modal:hover {
+    color: var(--muted-red);
+}
+
+.modal-caption {
+    color: var(--ink-dark);
+    text-align: center;
+    padding: 15px;
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 10px auto 0;
+    font-family: 'Caveat', cursive;
+    background-color: rgba(245, 241, 232, 0.9);
+    border-radius: 5px;
+}
+
+/* Animation for page load */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes crinkle {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.98); }
+    100% { transform: scale(1); }
+}
+
+.crinkle {
+    animation: crinkle 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .paper-container {
+        padding: 20px;
+    }
+    
+    .etasha-title {
+        font-size: 2.5rem;
+    }
+    
+    .album-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .memory-item {
+        flex: 1 1 100%;
+    }
+    
+    .album-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-link {
+        width: 80%;
+        text-align: center;
+    }
+    
+    .emotional-quote {
+        font-size: 1.3rem;
+        padding: 20px;
+    }
+    
+    .class-quote p {
+        font-size: 1.8rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .album-nav, .modal, .footer-icons {
+        display: none;
+    }
+    
+    .memory-item:hover {
+        transform: none;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Game/Intro Overlay Styles */
+.game-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.game-container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Envelope Styles */
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #c41e3a;
+    cursor: pointer;
+    transition: transform 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+.envelope-front {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 100px solid #e62e4d;
+    z-index: 3;
+}
+
+.envelope-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 100px solid #a01830;
+    transform-origin: top;
+    transition: transform 0.5s, z-index 0.1s;
+    z-index: 4;
+}
+
+.envelope.open .envelope-top {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope-paper {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 280px;
+    height: 180px;
+    background-color: white;
+    z-index: 2;
+    transition: transform 0.5s 0.2s;
+}
+
+.envelope.open .envelope-paper {
+    transform: translateY(-100px);
+}
+
+.click-hint {
+    position: absolute;
+    bottom: -40px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Santa Instruction Styles */
+.santa-instruction {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 320px;
+    animation: fadeIn 0.5s;
+    z-index: 10;
+}
+
+.santa-visual {
+    font-size: 5rem;
+    margin-bottom: -20px;
+    z-index: 2;
+    animation: bounce 2s infinite;
+}
+
+.speech-bubble {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 3px solid var(--muted-red);
+}
+
+.speech-bubble h3 {
+    font-family: 'Caveat', cursive;
+    color: var(--muted-red);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.game-btn {
+    background-color: var(--muted-green);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: transform 0.2s;
+}
+
+.game-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--muted-blue);
+}
